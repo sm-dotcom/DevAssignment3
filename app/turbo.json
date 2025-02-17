@@ -1,0 +1,13 @@
+{
+    "extends": "turbo",
+    "pipeline": {
+      "dev": {
+        "cache": false,
+        "persistent": true
+      },
+      "build": {
+        "outputs": ["dist/**", "build/**"]
+      }
+    }
+  }
+  
