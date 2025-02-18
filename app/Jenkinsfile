@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/sm-dotcom/DevAssignment3.git'
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                sh 'cd frontend && npm install && npm run build'
+                archiveArtifacts artifacts: 'frontend/build/**', fingerprint: true
+            }
+        }
+
+        stage('Build Backend') {
+            steps {
+                sh 'cd backend && docker build -t my-backend .'
+            }
+        }
+
+        stage('Push Backend Image') {
+            steps {
+                sh 'docker tag my-backend:latest smdotcom/my-backend:latest'
+                sh 'docker push smdotcom/my-backend:latest'
+            }
+        }
+    }
+}
