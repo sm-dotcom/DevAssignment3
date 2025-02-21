@@ -20,9 +20,9 @@ Fails the build if any critical code issues are found.
 
 3️⃣ Build and Test
 
-Frontend: Installs dependencies and runs unit tests using npm/yarn.
+Frontend: Installs dependencies and runs unit tests using npm.
 
-Backend: Builds and runs unit tests (e.g., pytest for Python, JUnit for Java).
+Backend: Builds and runs unit tests.
 
 Test Reporting: Publishes test results as artifacts in Jenkins.
 
@@ -79,8 +79,8 @@ Installation & Setup
 
 1️⃣ Clone the Repository
 
- git clone https://github.com/your-repo-name.git
- cd your-repo-name
+ git clone https://github.com/sm-dotcom/DevAssignment3.git
+ cd DevAssignment3
 
 2️⃣ Configure Jenkins
 
@@ -117,22 +117,6 @@ Run the pipeline.
 
 Deployment Strategy & Rollback Plan
 
-1️⃣ Blue-Green Deployment
-
-Deploys the new version to a standby (green) environment.
-
-Traffic is switched from the current (blue) environment to the green environment after testing.
-
-If issues arise, traffic is switched back to blue.
-
-2️⃣ Canary Release
-
-Rolls out the new version to a small percentage of users first.
-
-If stable, gradually increases traffic to 100%.
-
-If issues arise, reverts traffic to the old version.
-
 3️⃣ Rollback Strategy
 
 If deployment fails, automatically reverts to the previous stable version.
@@ -152,7 +136,3 @@ Commit your changes (git commit -m 'Add new feature').
 Push to the branch (git push origin feature-branch).
 
 Open a Pull Request (PR).
-
-License
-
-This project is licensed under the MIT License.
